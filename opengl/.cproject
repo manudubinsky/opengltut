@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?fileVersion 4.0.0?><cproject storage_type_id="org.eclipse.cdt.core.XmlProjectDescriptionStorage">
+	<storageModule moduleId="org.eclipse.cdt.core.settings">
+		<cconfiguration id="cdt.managedbuild.config.gnu.cross.exe.debug.1007391943">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.cross.exe.debug.1007391943" moduleId="org.eclipse.cdt.core.settings" name="Debug">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cross.exe.debug.1007391943" name="Debug" parent="cdt.managedbuild.config.gnu.cross.exe.debug">
+					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1007391943." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.debug.1230795929" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.debug">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.1999864729" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+							<builder buildPath="${workspace_loc:/opengl}/Debug" id="cdt.managedbuild.builder.gnu.cross.119863225" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.2089641217" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
+								<option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.option.optimization.level.2106451369" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.debugging.level.406224710" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.max" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.include.paths.1319226015" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1168932733" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
+								<option id="gnu.cpp.compiler.option.optimization.level.1733386056" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.debugging.level.1743746840" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.max" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.include.paths.1117707225" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/linmath"/>
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1630973539" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.1270762347" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.406031990" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
+								<option id="gnu.cpp.link.option.paths.1998740160" name="Library search path (-L)" superClass="gnu.cpp.link.option.paths"/>
+								<option id="gnu.cpp.link.option.libs.251151575" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="dl"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="glfw"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.739282389" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.1293630171" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.654488058" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+								<option id="gnu.both.asm.option.include.paths.1420932164" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.2055692251" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1007391943.276990348" name="tut3-rectangle.cpp" rcbsApplicability="disable" resourcePath="src/tut3-rectangle.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.1932385922">
+						<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.1932385922" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222">
+							<option id="gnu.cpp.compiler.option.include.paths.1508622821" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/linmath"/>
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+							</option>
+							<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.888680200" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1007391943.1003854028" name="prueba2.cpp" rcbsApplicability="disable" resourcePath="src/prueba2.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.1017775818">
+						<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.1017775818" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222">
+							<option id="gnu.cpp.compiler.option.include.paths.1989147824" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/opengl/glfw"/>
+							</option>
+							<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1607360247" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1007391943.516251080" name="config.cpp" rcbsApplicability="disable" resourcePath="src/config.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.379959495">
+						<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.379959495" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222">
+							<option id="gnu.cpp.compiler.option.include.paths.1228369633" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/linmath"/>
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+							</option>
+							<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.83051058" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1007391943.2116208527" name="tut7-texture.cpp" rcbsApplicability="disable" resourcePath="src/tut7-texture.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.622838713">
+						<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.622838713" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222">
+							<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1270611592" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1007391943.1870300292" name="tut4-uniform.cpp" rcbsApplicability="disable" resourcePath="src/tut4-uniform.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.2056456601">
+						<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.2056456601" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222">
+							<option id="gnu.cpp.compiler.option.include.paths.891227008" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/linmath"/>
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+							</option>
+							<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1147073860" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1007391943.1838339309" name="tut1.cpp" rcbsApplicability="disable" resourcePath="src/tut1-window.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.582899838">
+						<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.582899838" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222">
+							<option id="gnu.cpp.compiler.option.include.paths.31019852" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
+							</option>
+							<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1435427096" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1007391943.144008216" name="tut2-triangle.cpp" rcbsApplicability="disable" resourcePath="src/tut2-triangle.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.1915189582">
+						<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.1915189582" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222">
+							<option id="gnu.cpp.compiler.option.include.paths.820226529" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" valueType="includePath">
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/linmath"/>
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+							</option>
+							<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.375786375" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1007391943.601696331" name="glad.c" rcbsApplicability="disable" resourcePath="src/glad.c" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.c.compiler.2089641217.788704985">
+						<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.2089641217.788704985" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler.2089641217">
+							<option id="gnu.c.compiler.option.include.paths.794629410" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+							</option>
+							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1774482846" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+						</tool>
+					</fileInfo>
+					<sourceEntries>
+						<entry excluding="tut7-texture.cpp|stb_image.cpp|tut6-shader_class.cpp|read_file.cpp|tut5-color_triangle.cpp|tut4-uniform.cpp|tut3-rectangle.cpp|config.cpp|tut2-triangle.cpp|tut1-window.cpp|tut1.cpp|prueba2.cpp|helloworld.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+		<cconfiguration id="cdt.managedbuild.config.gnu.cross.exe.release.1883687536">
+			<storageModule buildSystemId="org.eclipse.cdt.managedbuilder.core.configurationDataProvider" id="cdt.managedbuild.config.gnu.cross.exe.release.1883687536" moduleId="org.eclipse.cdt.core.settings" name="Release">
+				<externalSettings/>
+				<extensions>
+					<extension id="org.eclipse.cdt.core.ELF" point="org.eclipse.cdt.core.BinaryParser"/>
+					<extension id="org.eclipse.cdt.core.GASErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GmakeErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GLDErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.CWDLocator" point="org.eclipse.cdt.core.ErrorParser"/>
+					<extension id="org.eclipse.cdt.core.GCCErrorParser" point="org.eclipse.cdt.core.ErrorParser"/>
+				</extensions>
+			</storageModule>
+			<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+				<configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.release" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cross.exe.release.1883687536" name="Release" parent="cdt.managedbuild.config.gnu.cross.exe.release">
+					<folderInfo id="cdt.managedbuild.config.gnu.cross.exe.release.1883687536." name="/" resourcePath="">
+						<toolChain id="cdt.managedbuild.toolchain.gnu.cross.exe.release.638737988" name="Cross GCC" superClass="cdt.managedbuild.toolchain.gnu.cross.exe.release">
+							<targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.ELF" id="cdt.managedbuild.targetPlatform.gnu.cross.108528400" isAbstract="false" osList="all" superClass="cdt.managedbuild.targetPlatform.gnu.cross"/>
+							<builder buildPath="${workspace_loc:/opengl}/Release" id="cdt.managedbuild.builder.gnu.cross.1225314205" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.builder.gnu.cross"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.compiler.1879838745" name="Cross GCC Compiler" superClass="cdt.managedbuild.tool.gnu.cross.c.compiler">
+								<option defaultValue="gnu.c.optimization.level.most" id="gnu.c.compiler.option.optimization.level.447682481" name="Optimization Level" superClass="gnu.c.compiler.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.debugging.level.277740811" name="Debug Level" superClass="gnu.c.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.c.debugging.level.none" valueType="enumerated"/>
+								<option id="gnu.c.compiler.option.include.paths.2123759729" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb"/>
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.110884469" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.365615589" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler">
+								<option id="gnu.cpp.compiler.option.optimization.level.629358367" name="Optimization Level" superClass="gnu.cpp.compiler.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.most" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.debugging.level.306802168" name="Debug Level" superClass="gnu.cpp.compiler.option.debugging.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.debugging.level.none" valueType="enumerated"/>
+								<option id="gnu.cpp.compiler.option.include.paths.349460389" name="Include paths (-I)" superClass="gnu.cpp.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb"/>
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.650234015" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.c.linker.1382239068" name="Cross GCC Linker" superClass="cdt.managedbuild.tool.gnu.cross.c.linker"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.cpp.linker.566688470" name="Cross G++ Linker" superClass="cdt.managedbuild.tool.gnu.cross.cpp.linker">
+								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.146393059" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
+									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
+									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
+								</inputType>
+							</tool>
+							<tool id="cdt.managedbuild.tool.gnu.cross.archiver.1115384175" name="Cross GCC Archiver" superClass="cdt.managedbuild.tool.gnu.cross.archiver"/>
+							<tool id="cdt.managedbuild.tool.gnu.cross.assembler.2123935472" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+								<option id="gnu.both.asm.option.include.paths.1827598710" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb"/>
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+								</option>
+								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.1543398701" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+							</tool>
+						</toolChain>
+					</folderInfo>
+					<sourceEntries>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+					</sourceEntries>
+				</configuration>
+			</storageModule>
+			<storageModule moduleId="org.eclipse.cdt.core.externalSettings"/>
+		</cconfiguration>
+	</storageModule>
+	<storageModule moduleId="cdtBuildSystem" version="4.0.0">
+		<project id="opengl.cdt.managedbuild.target.gnu.cross.exe.242873867" name="Executable" projectType="cdt.managedbuild.target.gnu.cross.exe"/>
+	</storageModule>
+	<storageModule moduleId="scannerConfiguration">
+		<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.debug.1007391943;cdt.managedbuild.config.gnu.cross.exe.debug.1007391943.;cdt.managedbuild.tool.gnu.cross.c.compiler.2089641217;cdt.managedbuild.tool.gnu.c.compiler.input.1168932733">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.debug.1007391943;cdt.managedbuild.config.gnu.cross.exe.debug.1007391943.;cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222;cdt.managedbuild.tool.gnu.cpp.compiler.input.1630973539">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.release.1883687536;cdt.managedbuild.config.gnu.cross.exe.release.1883687536.;cdt.managedbuild.tool.gnu.cross.c.compiler.1879838745;cdt.managedbuild.tool.gnu.c.compiler.input.110884469">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+		<scannerConfigBuildInfo instanceId="cdt.managedbuild.config.gnu.cross.exe.release.1883687536;cdt.managedbuild.config.gnu.cross.exe.release.1883687536.;cdt.managedbuild.tool.gnu.cross.cpp.compiler.365615589;cdt.managedbuild.tool.gnu.cpp.compiler.input.650234015">
+			<autodiscovery enabled="true" problemReportingEnabled="true" selectedProfileId=""/>
+		</scannerConfigBuildInfo>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="refreshScope" versionNumber="2">
+		<configuration configurationName="Debug">
+			<resource resourceType="PROJECT" workspacePath="/opengl"/>
+		</configuration>
+		<configuration configurationName="Release">
+			<resource resourceType="PROJECT" workspacePath="/opengl"/>
+		</configuration>
+	</storageModule>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
+</cproject>
