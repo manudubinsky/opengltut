@@ -25,6 +25,7 @@
 								<option id="gnu.c.compiler.option.include.paths.1319226015" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" useByScannerDiscovery="false" valueType="includePath">
 									<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
 									<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/glm"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1168932733" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 							</tool>
@@ -35,6 +36,7 @@
 									<listOptionValue builtIn="false" value="/home/manuel/doctorado/linmath"/>
 									<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
 									<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/glm"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1630973539" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 							</tool>
@@ -44,6 +46,7 @@
 								<option id="gnu.cpp.link.option.libs.251151575" name="Libraries (-l)" superClass="gnu.cpp.link.option.libs" valueType="libs">
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="dl"/>
 									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="glfw"/>
+									<listOptionValue builtIn="false" srcPrefixMapping="" srcRootPath="" value="assimp"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.cpp.linker.input.739282389" superClass="cdt.managedbuild.tool.gnu.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
@@ -55,6 +58,7 @@
 								<option id="gnu.both.asm.option.include.paths.1420932164" name="Include paths (-I)" superClass="gnu.both.asm.option.include.paths" valueType="includePath">
 									<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
 									<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+									<listOptionValue builtIn="false" value="/home/manuel/doctorado/glm"/>
 								</option>
 								<inputType id="cdt.managedbuild.tool.gnu.assembler.input.2055692251" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
 							</tool>
@@ -66,6 +70,7 @@
 								<listOptionValue builtIn="false" value="/home/manuel/doctorado/linmath"/>
 								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
 								<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glm"/>
 							</option>
 							<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.888680200" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 						</tool>
@@ -85,13 +90,9 @@
 								<listOptionValue builtIn="false" value="/home/manuel/doctorado/linmath"/>
 								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
 								<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glm"/>
 							</option>
 							<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.83051058" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
-						</tool>
-					</fileInfo>
-					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1007391943.2116208527" name="tut7-texture.cpp" rcbsApplicability="disable" resourcePath="src/tut7-texture.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.622838713">
-						<tool id="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.622838713" name="Cross G++ Compiler" superClass="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222">
-							<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1270611592" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 						</tool>
 					</fileInfo>
 					<fileInfo id="cdt.managedbuild.config.gnu.cross.exe.debug.1007391943.1870300292" name="tut4-uniform.cpp" rcbsApplicability="disable" resourcePath="src/tut4-uniform.cpp" toolsToInvoke="cdt.managedbuild.tool.gnu.cross.cpp.compiler.799381222.2056456601">
@@ -100,6 +101,7 @@
 								<listOptionValue builtIn="false" value="/home/manuel/doctorado/linmath"/>
 								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
 								<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glm"/>
 							</option>
 							<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.1147073860" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 						</tool>
@@ -118,6 +120,7 @@
 								<listOptionValue builtIn="false" value="/home/manuel/doctorado/linmath"/>
 								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
 								<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glm"/>
 							</option>
 							<inputType id="cdt.managedbuild.tool.gnu.cpp.compiler.input.375786375" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.input"/>
 						</tool>
@@ -127,12 +130,13 @@
 							<option id="gnu.c.compiler.option.include.paths.794629410" name="Include paths (-I)" superClass="gnu.c.compiler.option.include.paths" valueType="includePath">
 								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glad/include"/>
 								<listOptionValue builtIn="false" value="/home/manuel/doctorado/stb/stb-master"/>
+								<listOptionValue builtIn="false" value="/home/manuel/doctorado/glm"/>
 							</option>
 							<inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.1774482846" superClass="cdt.managedbuild.tool.gnu.c.compiler.input"/>
 						</tool>
 					</fileInfo>
 					<sourceEntries>
-						<entry excluding="tut7-texture.cpp|stb_image.cpp|tut6-shader_class.cpp|read_file.cpp|tut5-color_triangle.cpp|tut4-uniform.cpp|tut3-rectangle.cpp|config.cpp|tut2-triangle.cpp|tut1-window.cpp|tut1.cpp|prueba2.cpp|helloworld.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+						<entry excluding="tut17-camera4.cpp|read_file.cpp|check_assimp.cpp|tut16-camera3.cpp|tut15-camera2.cpp|tut14-camera1.cpp|tut13-cubes.cpp|tut12-cube.cpp|tut11-3D.cpp|tut12-cubes.cpp|tut10-rotate.cpp|tut9-glm.cpp|tut8-two_textures.cpp|tut7-texture.cpp|stb_image.cpp|tut6-shader_class.cpp|tut5-color_triangle.cpp|tut4-uniform.cpp|tut3-rectangle.cpp|config.cpp|tut2-triangle.cpp|tut1-window.cpp|tut1.cpp|prueba2.cpp|helloworld.cpp" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
 					</sourceEntries>
 				</configuration>
 			</storageModule>
