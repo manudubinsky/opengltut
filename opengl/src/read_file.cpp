@@ -6,7 +6,7 @@
 using namespace std;
 
 int main() {
-    string vertexPath = "/home/manuel/doctorado/eclipse/opengl/opengl/shaders/3.3.shader.vs";
+    string vertexPath = "/home/manuel/doctorado/opengl/opengltut/opengl/shaders/3.3.shader.vs";
     string vertexCode;
     std::ifstream vShaderFile;
     vShaderFile.exceptions (std::ifstream::failbit | std::ifstream::badbit);
