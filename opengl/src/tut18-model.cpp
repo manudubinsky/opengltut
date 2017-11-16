@@ -75,15 +75,20 @@ int main()
     // build and compile shaders
     // -------------------------
     Shader ourShader("/home/manuel/doctorado/opengl/opengltut/opengl/shaders/1.model_loading.vs",
-    		"/home/manuel/doctorado/opengl/opengltut/opengl/shaders/1.model_loading.fs");
+    		"/home/manuel/doctorado/opengl/opengltut/opengl/shaders/2.model_loading.fs");
 
     // load models
     // -----------
-    Model ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/nanosuit/nanosuit.obj");
+    //Model ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/nanosuit/nanosuit.obj");
+    //cout << "antes ourModel" << endl;
 
+    //Model ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/ring/ring.obj");
+    Model ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/bunny/reconstruction/bun_zipper.ply");
+
+    //cout << "despues ourModel" << endl;
 
     // draw in wireframe
-    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     // render loop
     // -----------
