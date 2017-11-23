@@ -15,7 +15,7 @@ const unsigned int SCR_HEIGHT = 600;
 const char *vertexShaderSource ="#version 330 core\n"
     "layout (location = 0) in vec3 aPos;\n"
     "layout (location = 1) in vec3 aColor;\n"
-    "out vec3 ourColor;\n"
+    "flat out vec3 ourColor;\n"
     "void main()\n"
     "{\n"
     "   gl_Position = vec4(aPos, 1.0);\n"
@@ -24,7 +24,7 @@ const char *vertexShaderSource ="#version 330 core\n"
 
 const char *fragmentShaderSource = "#version 330 core\n"
     "out vec4 FragColor;\n"
-    "in vec3 ourColor;\n"
+    "flat in vec3 ourColor;\n"
     "void main()\n"
     "{\n"
     "   FragColor = vec4(ourColor, 1.0f);\n"
@@ -132,6 +132,8 @@ int main()
     // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
     // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
     // glBindVertexArray(0);
+
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
 
     // as we only have a single shader, we could also just activate our shader once beforehand if we want to
     glUseProgram(shaderProgram);
