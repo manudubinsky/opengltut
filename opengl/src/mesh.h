@@ -45,13 +45,13 @@ struct Texture {
 
 class Mesh {
 public:
-    /*  Mesh Data  */
+    //  Mesh Data
     vector<Vertex> vertices;
     vector<unsigned int> indices;
     vector<Texture> textures;
     unsigned int VAO;
 
-    /*  Functions  */
+    //  Functions
     // constructor
     Mesh(vector<Vertex> vertices, vector<unsigned int> indices, vector<Texture> textures)
     {
@@ -104,10 +104,10 @@ public:
     }
 
 private:
-    /*  Render data  */
+    //  Render data
     unsigned int VBO, EBO;
 
-    /*  Functions    */
+    //  Functions
     // initializes all the buffer objects/arrays
     void setupMesh()
     {
@@ -147,9 +147,5 @@ private:
         glBindVertexArray(0);
     }
 };
-
-
-
-
 
 #endif /* MESH_H_ */
