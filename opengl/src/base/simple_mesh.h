@@ -10,19 +10,15 @@
 
 #include <glad/glad.h> // holds all OpenGL type declarations
 
-#include <assimp/Importer.hpp>
-
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
+#include <cmath>
+#include <cstddef>
+#include <map>
+#include <sstream>
+#include <string>
+#include <utility>
+#include <vector>
 
 #include "shader.h"
-
-#include <string>
-#include <fstream>
-#include <sstream>
-#include <iostream>
-#include <vector>
-#include <map>
 
 using namespace std;
 

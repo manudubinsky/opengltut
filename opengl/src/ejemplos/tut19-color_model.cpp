@@ -89,7 +89,8 @@ int main()
     //Model ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/ring/ring.obj");
     //SimpleModel ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/bunny/reconstruction/bun_zipper.ply");
     //SimpleModel ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/nanosuit/nanosuit.obj");
-    SimpleModel ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/ring/ring.obj");
+    //SimpleModel ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/ring/ring.obj");
+    SimpleModel ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/torus/torus.obj");
     //cout << "despues ourModel" << endl;
 
     // draw in wireframe

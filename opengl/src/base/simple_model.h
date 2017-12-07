@@ -10,8 +10,6 @@
 
 #include <glad/glad.h>
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
 #include <assimp/Importer.hpp>
@@ -29,7 +27,7 @@
 #include <vector>
 using namespace std;
 
-class VerySimpleModel
+class SimpleModel
 {
 public:
     /*  Model Data */
@@ -39,7 +37,7 @@ public:
 
     /*  Functions   */
     // constructor, expects a filepath to a 3D model.
-    VerySimpleModel(string const &path, bool gamma = false) : gammaCorrection(gamma)
+    SimpleModel(string const &path, bool gamma = false) : gammaCorrection(gamma)
     {
         loadModel(path);
     }
