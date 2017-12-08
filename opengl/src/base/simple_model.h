@@ -27,6 +27,17 @@
 #include <vector>
 using namespace std;
 
+struct classcomp {
+    bool operator() (const glm::vec3& lhs, const glm::vec3& rhs) const
+    {
+        if(lhs.x < rhs.x || (lhs.x == rhs.x && lhs.y < rhs.y) ||
+        		(lhs.x == rhs.x && lhs.y == rhs.y && lhs.z < rhs.z))
+            return true;
+        else
+            return false;
+    }
+};
+
 class SimpleModel
 {
 public:
@@ -98,29 +109,40 @@ private:
         // data to fill
         vector<SimpleVertex> vertices;
         vector<unsigned int> indices;
+        std::map<glm::vec3, int, classcomp> verticesMap;
+        std::map<glm::vec3, int, classcomp>::iterator it;
+        std::vector<unsigned int> vertexesClasses(mesh->mNumVertices);
 
         // Walk through each of the mesh's vertices
         for(unsigned int i = 0; i < mesh->mNumVertices; i++)
         {
-            SimpleVertex vertex;
             glm::vec3 vector; // we declare a placeholder vector since assimp uses its own vector class that doesn't directly convert to glm's vec3 class so we transfer the data to this placeholder glm::vec3 first.
             // positions
             vector.x = mesh->mVertices[i].x;
             vector.y = mesh->mVertices[i].y;
             vector.z = mesh->mVertices[i].z;
-            vertex.Position = vector;
-            vertex.Color = 0.0f;
-            vertices.push_back(vertex);
+            it = verticesMap.find(vector);
+			if (it == verticesMap.end()) {
+				SimpleVertex vertex;
+				vertex.Position = vector;
+	            vertex.Color = 0.0f;
+	            verticesMap[vector] = vertices.size();
+	            vertices.push_back(vertex);
+			}
+			vertexesClasses[i] = verticesMap[vector];
+            //std::cout << i << ": " << vector.x << ", " << vector.y << ", "  << vector.z << std::endl;
         }
         // now wak through each of the mesh's faces (a face is a mesh its triangle) and retrieve the corresponding vertex indices.
+        //std::cout << "#faces: " << mesh->mNumFaces << std::endl;
         for(unsigned int i = 0; i < mesh->mNumFaces; i++)
         {
             aiFace face = mesh->mFaces[i];
             // retrieve all indices of the face and store them in the indices vector
             for(unsigned int j = 0; j < face.mNumIndices; j++)
-                indices.push_back(face.mIndices[j]);
+                indices.push_back(vertexesClasses[face.mIndices[j]]);
         }
         // return a mesh object created from the extracted mesh data
+        //std::cout << "#indices: " << indices.size() << std::endl;
         return SimpleMesh(vertices, indices);
     }
 

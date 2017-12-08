@@ -1,4 +1,4 @@
-#undef MAIN
+#define MAIN
 #ifdef MAIN
 
 #include <glad/glad.h>
@@ -91,6 +91,7 @@ int main()
     //SimpleModel ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/nanosuit/nanosuit.obj");
     //SimpleModel ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/ring/ring.obj");
     SimpleModel ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/torus/torus.obj");
+    //SimpleModel ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/cone/cone.obj");
     //cout << "despues ourModel" << endl;
 
     // draw in wireframe

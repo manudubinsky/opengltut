@@ -19,7 +19,6 @@
 #include <vector>
 
 #include "shader.h"
-#include "../diff_forms/integrator.h"
 
 using namespace std;
 
@@ -38,21 +37,48 @@ public:
     vector<SimpleVertex> vertices;
     vector<unsigned int> indices;
     unsigned int VAO;
-    Integrator integrator;
 
     /*  Functions  */
     // constructor
     SimpleMesh(vector<SimpleVertex> orig_vertices, vector<unsigned int> orig_indices)
     {
     	setupData(orig_vertices, orig_indices);
+    	//std::cout << "termine" << std::endl;
+        /*
+        std::cout << vertices.size() << " " << indices.size() << std::endl;
+        if (vertices.size() < 100) {
+        	for (int i = 0; i < vertices.size(); i++) {
+        		std::cout << i << ": v[x,y,z]: " << vertices[i].Position.x << ","
+        										<< vertices[i].Position.y << ","
+        										<< vertices[i].Position.z << std::endl;
+        	}
+        	for (int i = 0; i < indices.size(); i+=3) {
+        		std:cout << "f[" << i << "]: " << indices[i] << ","
+        				 	 	 	 	 	 	 << indices[i+1] << ","
+        				 	 	 	 	 	 	 << indices[i+2] << std::endl;
+        	}
+        }
+		*/
+        // now that we have all the required data, set the vertex buffers and its attribute pointers.
         setupMesh();
     }
 
     // render the mesh
     void Draw(Shader shader)
     {
+    	std::map<std::string,int>::iterator it;
+        float color = sin(glfwGetTime()) / 2.0f + 0.5f;
+        for (it = verticesMap.begin(); it != verticesMap.end(); ++it) {
+        	int element = it->second;
+        	vertices[element].Color = color;
+        }
+        glBindBuffer(GL_ARRAY_BUFFER, VBO);
+        glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(SimpleVertex), &vertices[0], GL_STATIC_DRAW);
+
         // draw mesh
         glBindVertexArray(VAO);
+        //glDrawElements(GL_TRIANGLES, indices.size(), GL_UNSIGNED_INT, 0);
+        //glDrawElements(GL_POINTS, indices.size(), GL_UNSIGNED_INT, 0);
         glDrawElements(GL_LINES, indices.size(), GL_UNSIGNED_INT, 0);
         glBindVertexArray(0);
 
@@ -100,9 +126,6 @@ private:
 
     unsigned int getVertexIndex(int p1, int p2, vector<SimpleVertex> orig_vertices) {
     	std::map<std::string,int>::iterator it;
-    	if (p1 > p2) {
-    		intSwap(p1, p2);
-    	}
     	std::stringstream convert;
     	convert << p1 << "_" << p2;
     	std::string key = convert.str();
@@ -114,11 +137,7 @@ private:
             vector.y = (orig_vertices[p1].Position.y + orig_vertices[p2].Position.y) / 2;
             vector.z = (orig_vertices[p1].Position.z + orig_vertices[p2].Position.z) / 2;
             vertex.Position = vector;
-            if (integrator.isTreeEdge(p1, p2)) {
-            	vertex.Color = 1.0f;
-            } else {
-            	vertex.Color = 0.5f;
-            }
+            vertex.Color = 0.5f;
             vertices.push_back(vertex);
             verticesMap[key] = vertices.size() - 1;
     	}
@@ -134,12 +153,6 @@ private:
     }
 
     void setupData(vector<SimpleVertex> orig_vertices, vector<unsigned int> orig_indices) {
-    	//std::cout << "ACA: " << orig_vertices.size() << std::endl;
-    	//std::cout << "ACA: " << orig_indices.size() << std::endl;
-    	integrator.set(orig_vertices.size(), orig_indices);
-    	std::cout << integrator.LABIMatrix.size() << " (" <<
-    			integrator.LABIMatrix.rows() << "x" << integrator.LABIMatrix.cols() << ") nnZ:" <<
-    			integrator.LABIMatrix.nonZeros() << std::endl;
 
     	//vertices originales
     	for (unsigned int i = 0; i < orig_vertices.size(); i++) {
@@ -155,6 +168,10 @@ private:
     		//p1 <-> p2
     		midVertex = getVertexIndex(p1, p2, orig_vertices);
     		addLines(p1, p2, midVertex);
+    		/*
+    		if (orig_vertices.size() < 100) {
+    			std::cout << p1 << "," << p2 << "," << midVertex << std::endl;
+    		}*/
 
     		//p1 <-> p3
     		midVertex = getVertexIndex(p1, p3, orig_vertices);
@@ -163,7 +180,6 @@ private:
     		//p2 <-> p3
     		midVertex = getVertexIndex(p2, p3, orig_vertices);
     		addLines(p2, p3, midVertex);
-    		//std::cout << p1 << "," << p2 << "," << p3 << std::endl;
     	}
     }
 
