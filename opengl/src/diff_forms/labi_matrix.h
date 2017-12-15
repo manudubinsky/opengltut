@@ -8,15 +8,11 @@
 #ifndef INTEGRATOR_H_
 #define INTEGRATOR_H_
 
-#include <Eigen/Sparse>
+
 #include <iterator>
 #include <queue>
 #include <vector>
-
-typedef Eigen::SparseMatrix<int,Eigen::RowMajor> SpRowInt;
-typedef Eigen::SparseMatrix<bool,Eigen::RowMajor> SpRowBool;
-typedef Eigen::Triplet<bool> TBool;
-typedef Eigen::Triplet<int> TInt;
+#include "../base/types.h"
 
 void intSwap(int& v1, int& v2) {
 	int aux = v1;
@@ -24,15 +20,16 @@ void intSwap(int& v1, int& v2) {
 	v2 = aux;
 }
 
-class Integrator
+class LABIMatrix
 {
 public:
-	SpRowInt LABIMatrix;
+	SpRowFloat LABI;
+	SpRowFloat laplacianMatrix;
 
-    Integrator() : vertexCount(0) {
+    LABIMatrix() : vertexCount(0) {
     }
 
-    Integrator(int vertexCount, const std::vector<unsigned int>& indices) {
+    LABIMatrix(int vertexCount, const std::vector<unsigned int>& indices) {
     	set(vertexCount, indices);
     }
 
@@ -60,6 +57,19 @@ public:
     	return value;
     }
 
+    int getTreeEdge(int v1, int v2) {
+    	int iV1 = index2label[v1];
+    	int iV2 = index2label[v2];
+    	if (iV1 > iV2) {
+    		intSwap(iV1, iV2);
+    	}
+    	return nodes2TreeEdgesMatrix.coeff(iV1, iV2);
+    }
+
+    int getVertexCount() {
+    	return vertexCount;
+    }
+
 private:
     int vertexCount;
     std::vector<unsigned int> indices;
@@ -71,13 +81,19 @@ private:
 
     //BFS desde el nodo "indexTreeRoot" mapeando los índices y los labels
     void buildLABIMatrix(int indexTreeRoot) {
-    	std::vector<TInt> LABITriplets;
-    	std::vector<TInt> nodes2EdgeIndexTriplets; //para armar la matriz de NxN / v[i][j] = #eje i->j
+    	std::vector<TFloat> LABITriplets;
+    	std::vector<TFloat> nodes2EdgeIndexTriplets; //para armar la matriz de NxN / v[i][j] = #eje i->j
     	int edgeCount;
     	std::vector<std::vector<int> > loopEdges;
 
     	//Armado de las submatrices L y A
     	buildLAMatrix(indexTreeRoot, edgeCount, LABITriplets, nodes2EdgeIndexTriplets, loopEdges);
+
+    	//Matriz laplaciana
+    	SpRowFloat directedIncidenceMatrix(edgeCount, vertexCount-1); //LA
+    	directedIncidenceMatrix.setFromTriplets(LABITriplets.begin(), LABITriplets.end());
+    	laplacianMatrix.resize(vertexCount-1,vertexCount-1);
+    	laplacianMatrix = directedIncidenceMatrix.transpose() * directedIncidenceMatrix;
 
         nodes2TreeEdgesMatrix.resize(vertexCount,vertexCount);
         nodes2TreeEdgesMatrix.setFromTriplets(nodes2EdgeIndexTriplets.begin(), nodes2EdgeIndexTriplets.end());
@@ -89,11 +105,11 @@ private:
         //Armado de la submatriz B
         buildBMatrix(LABITriplets, loopEdges);
 
-        LABIMatrix.resize(edgeCount, edgeCount);
-        LABIMatrix.setFromTriplets(LABITriplets.begin(), LABITriplets.end());
+        LABI.resize(edgeCount, edgeCount);
+        LABI.setFromTriplets(LABITriplets.begin(), LABITriplets.end());
     }
 
-    void buildBMatrix(std::vector<TInt>& LABITriplets,
+    void buildBMatrix(std::vector<TFloat>& LABITriplets,
     					std::vector<std::vector<int> >& loopEdges) {
     	//std::cout << "ACA: " << nodes2EdgeIndexMatrix << std::endl;
     	std::vector<std::vector<int> >::iterator it;
@@ -108,38 +124,38 @@ private:
     }
 
     void setBTriplets(int col, int minBranchIndex, int maxBranchIndex,
-    					std::vector<std::vector<int> >& loopEdges, std::vector<TInt>& LABITriplets) {
+    					std::vector<std::vector<int> >& loopEdges, std::vector<TFloat>& LABITriplets) {
     	int child; int parent;
     	while (minBranchIndex != maxBranchIndex) {
     		if (minBranchIndex < maxBranchIndex) {
     			child = maxBranchIndex;
     			parent = parents[maxBranchIndex];
-    			LABITriplets.push_back(TInt(nodes2TreeEdgesMatrix.coeff(parent,child), col, -1));
+    			LABITriplets.push_back(TFloat(nodes2TreeEdgesMatrix.coeff(parent,child), col, -1));
     			maxBranchIndex = parent;
     		} else {
     			child = minBranchIndex;
     			parent = parents[minBranchIndex];
-    			LABITriplets.push_back(TInt(nodes2TreeEdgesMatrix.coeff(parent,child), col, 1));
+    			LABITriplets.push_back(TFloat(nodes2TreeEdgesMatrix.coeff(parent,child), col, 1));
     			minBranchIndex = parent;
     		}
     	}
     }
 
-    void buildIMatrix(int edgeCount, std::vector<TInt>& LABITriplets) {
+    void buildIMatrix(int edgeCount, std::vector<TFloat>& LABITriplets) {
     	for (int i = vertexCount - 1; i < edgeCount; i++) {
-    		LABITriplets.push_back(TInt(i, i, 1));
+    		LABITriplets.push_back(TFloat(i, i, 1));
     	}
     }
 
     void buildLAMatrix(int indexTreeRoot, int &edgeCount,
-    						std::vector<TInt>& LABITriplets, std::vector<TInt>& node2EdgeTriplets,
+    						std::vector<TFloat>& LABITriplets, std::vector<TFloat>& node2EdgeTriplets,
     						std::vector<std::vector<int> >& loopEdges) {
     	//matriz de adyacencia
     	std::vector<TBool> adjTriplets;
     	buildAdjacencyTriplets(adjTriplets);
     	SpRowBool adjMatrix(vertexCount,vertexCount);
     	adjMatrix.setFromTriplets(adjTriplets.begin(), adjTriplets.end());
-    	//std::cout << "ACA3: " << adjMatrix.nonZeros() << std::endl;
+    	//std::cout << "ACA adjMatrix.nonZeros(): " << adjMatrix.nonZeros() << std::endl;
     	std::queue<unsigned int> visitNodes;
     	label2index.resize(vertexCount, -1);
         index2label.resize(vertexCount, -1);
@@ -174,7 +190,7 @@ private:
 
     void setParentChild(unsigned int parentIndex, unsigned int childIndex, unsigned int &currentLabel,
     				unsigned int &treeEdgeCount, unsigned int &loopEdgeCount,
-    				std::vector<TInt>& LABITriplets, std::vector<TInt>& node2EdgeTriplets,
+    				std::vector<TFloat>& LABITriplets, std::vector<TFloat>& node2EdgeTriplets,
     				std::vector<std::vector<int> >& loopEdges) {
 		if (index2label[childIndex] == -1) { //primera vez que aparece el nodo
 	        index2label[childIndex] = ++currentLabel;
@@ -183,9 +199,9 @@ private:
 			//agregar eje al árbol: como es la primera vez que aparece el child,
 			//						el eje parent -> child es del árbol
 			if (index2label[parentIndex] != 0) // no hay que considerar la columna de la raíz del árbol
-				LABITriplets.push_back(TInt(treeEdgeCount, index2label[parentIndex]-1, -1));
-			LABITriplets.push_back(TInt(treeEdgeCount, index2label[childIndex]-1, 1));
-			node2EdgeTriplets.push_back(TInt(index2label[parentIndex], index2label[childIndex], treeEdgeCount));
+				LABITriplets.push_back(TFloat(treeEdgeCount, index2label[parentIndex]-1, -1));
+			LABITriplets.push_back(TFloat(treeEdgeCount, index2label[childIndex]-1, 1));
+			node2EdgeTriplets.push_back(TFloat(index2label[parentIndex], index2label[childIndex], treeEdgeCount));
 			if (node2EdgeTriplets.empty()) {
 			// si es el primer eje del árbol hay que duplicar la informacion (problema ver definicion de "edge0")
 				edge0[0] = index2label[parentIndex];
@@ -195,8 +211,8 @@ private:
 		} else {
 			if (index2label[parentIndex] < index2label[childIndex]) {
 			// hay que agregar un loop-edge
-				LABITriplets.push_back(TInt(loopEdgeCount, index2label[parentIndex]-1, -1));
-				LABITriplets.push_back(TInt(loopEdgeCount, index2label[childIndex]-1, 1));
+				LABITriplets.push_back(TFloat(loopEdgeCount, index2label[parentIndex]-1, -1));
+				LABITriplets.push_back(TFloat(loopEdgeCount, index2label[childIndex]-1, 1));
 				std::vector<int> edge;
 				edge.push_back(index2label[parentIndex]);
 				edge.push_back(index2label[childIndex]);

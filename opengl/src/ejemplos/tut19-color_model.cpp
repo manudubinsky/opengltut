@@ -1,4 +1,4 @@
-#define MAIN
+#undef MAIN
 #ifdef MAIN
 
 #include <glad/glad.h>

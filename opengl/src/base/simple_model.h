@@ -27,6 +27,7 @@
 #include <vector>
 using namespace std;
 
+/*
 struct classcomp {
     bool operator() (const glm::vec3& lhs, const glm::vec3& rhs) const
     {
@@ -37,6 +38,7 @@ struct classcomp {
             return false;
     }
 };
+*/
 
 class SimpleModel
 {
@@ -84,7 +86,7 @@ private:
     // processes a node in a recursive fashion. Processes each individual mesh located at the node and repeats this process on its children nodes (if any).
     void processNode(aiNode *node, const aiScene *scene)
     {
-        //cout << "processNode: " << node->mName.C_Str() << " " << node->mNumMeshes << " " << node->mNumChildren << endl;
+        cout << "processNode: " << node->mName.C_Str() << " " << node->mNumMeshes << " " << node->mNumChildren << endl;
         // process each mesh located at the current node
         for(unsigned int i = 0; i < node->mNumMeshes; i++)
         {

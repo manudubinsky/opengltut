@@ -28,7 +28,7 @@ public:
 
     /*  Functions  */
     // constructor
-    VerySimpleMesh(vector<unsigned int> indices, unsigned int vertexCount)
+    VerySimpleMesh(unsigned int vertexCount, vector<unsigned int> indices)
     {
     	this->indices = indices;
     	this->vertexCount = vertexCount;

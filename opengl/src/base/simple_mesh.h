@@ -19,7 +19,7 @@
 #include <vector>
 
 #include "shader.h"
-#include "../diff_forms/integrator.h"
+#include "../diff_forms/labi_matrix.h"
 
 using namespace std;
 
@@ -38,14 +38,14 @@ public:
     vector<SimpleVertex> vertices;
     vector<unsigned int> indices;
     unsigned int VAO;
-    Integrator integrator;
+    LABIMatrix labiMatrix;
 
     /*  Functions  */
     // constructor
     SimpleMesh(vector<SimpleVertex> orig_vertices, vector<unsigned int> orig_indices)
     {
     	setupData(orig_vertices, orig_indices);
-        setupMesh();
+        //setupMesh();
     }
 
     // render the mesh
@@ -114,10 +114,11 @@ private:
             vector.y = (orig_vertices[p1].Position.y + orig_vertices[p2].Position.y) / 2;
             vector.z = (orig_vertices[p1].Position.z + orig_vertices[p2].Position.z) / 2;
             vertex.Position = vector;
-            if (integrator.isTreeEdge(p1, p2)) {
-            	vertex.Color = 1.0f;
+            if (labiMatrix.isTreeEdge(p1, p2)) {
+            	float edge = (float)labiMatrix.getTreeEdge(p1, p2);
+            	vertex.Color = (1 - edge/(float)orig_vertices.size()) * 0.75f + 0.25f;
             } else {
-            	vertex.Color = 0.5f;
+            	vertex.Color = 0.0f;
             }
             vertices.push_back(vertex);
             verticesMap[key] = vertices.size() - 1;
@@ -136,17 +137,18 @@ private:
     void setupData(vector<SimpleVertex> orig_vertices, vector<unsigned int> orig_indices) {
     	//std::cout << "ACA: " << orig_vertices.size() << std::endl;
     	//std::cout << "ACA: " << orig_indices.size() << std::endl;
-    	integrator.set(orig_vertices.size(), orig_indices);
-    	std::cout << integrator.LABIMatrix.size() << " (" <<
-    			integrator.LABIMatrix.rows() << "x" << integrator.LABIMatrix.cols() << ") nnZ:" <<
-    			integrator.LABIMatrix.nonZeros() << std::endl;
+    	labiMatrix.set(orig_vertices.size(), orig_indices);
+    	std::cout << "ACA!: " << labiMatrix.LABI.size() << " (" <<
+    			labiMatrix.LABI.rows() << "x" << labiMatrix.LABI.cols() << ") nnZ:" <<
+    			labiMatrix.LABI.nonZeros() << std::endl;
 
     	//vertices originales
     	for (unsigned int i = 0; i < orig_vertices.size(); i++) {
 			vertices.push_back(orig_vertices[i]);
     	}
 
-
+//    	std::cout << "<0>" << std::endl;
+/*
     	unsigned int midVertex;
     	for (unsigned int i = 0; i < orig_indices.size(); i+=3) {
     		int p1 = orig_indices[i];
@@ -165,6 +167,8 @@ private:
     		addLines(p2, p3, midVertex);
     		//std::cout << p1 << "," << p2 << "," << p3 << std::endl;
     	}
+*/
+//    	std::cout << "<1>" << std::endl;
     }
 
 };

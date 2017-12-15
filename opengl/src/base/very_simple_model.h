@@ -9,12 +9,20 @@
 #define VERY_SIMPLE_MODEL_H_
 
 #include <assimp/Importer.hpp>
-#include <assimp/scene.h>
+#include <assimp/mesh.h>
 #include <assimp/postprocess.h>
+#include <assimp/scene.h>
+#include <assimp/vector3.h>
+#include <glm/detail/type_vec.hpp>
+#include <iostream>
+#include <map>
+#include <string>
+#include <vector>
 
 #include "very_simple_mesh.h"
 
 using namespace std;
+
 
 class VerySimpleModel
 {
@@ -59,14 +67,39 @@ private:
 
     VerySimpleMesh processMesh(aiMesh *mesh, const aiScene *scene)
     {
+        // data to fill
         vector<unsigned int> indices;
+        std::map<glm::vec3, int, classcomp> verticesMap;
+        std::map<glm::vec3, int, classcomp>::iterator it;
+        std::vector<unsigned int> vertexesClasses(mesh->mNumVertices);
+
+        // Walk through each of the mesh's vertices
+        for(unsigned int i = 0; i < mesh->mNumVertices; i++)
+        {
+            glm::vec3 vector; // we declare a placeholder vector since assimp uses its own vector class that doesn't directly convert to glm's vec3 class so we transfer the data to this placeholder glm::vec3 first.
+            // positions
+            vector.x = mesh->mVertices[i].x;
+            vector.y = mesh->mVertices[i].y;
+            vector.z = mesh->mVertices[i].z;
+            it = verticesMap.find(vector);
+			if (it == verticesMap.end()) {
+	            verticesMap[vector] = 1;
+			}
+			vertexesClasses[i] = verticesMap[vector];
+            //std::cout << i << ": " << vector.x << ", " << vector.y << ", "  << vector.z << std::endl;
+        }
+        // now wak through each of the mesh's faces (a face is a mesh its triangle) and retrieve the corresponding vertex indices.
+        //std::cout << "#faces: " << mesh->mNumFaces << std::endl;
         for(unsigned int i = 0; i < mesh->mNumFaces; i++)
         {
             aiFace face = mesh->mFaces[i];
+            // retrieve all indices of the face and store them in the indices vector
             for(unsigned int j = 0; j < face.mNumIndices; j++)
-                indices.push_back(face.mIndices[j]);
+                indices.push_back(vertexesClasses[face.mIndices[j]]);
         }
-        return VerySimpleMesh(indices, mesh->mNumVertices);
+        // return a mesh object created from the extracted mesh data
+        //std::cout << "#indices: " << indices.size() << std::endl;
+        return VerySimpleMesh(mesh->mNumVertices, indices);
     }
 };
 

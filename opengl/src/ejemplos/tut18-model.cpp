@@ -10,7 +10,7 @@
 #include "../base/shader.h"
 #include "../base/camera.h"
 //#include "model.h"
-#include "../base/simple_model.h"
+#include "../base/model.h"
 
 #include <iostream>
 
@@ -82,11 +82,12 @@ int main()
 
     // load models
     // -----------
-    SimpleModel ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/nanosuit/nanosuit.obj");
+    //SimpleModel ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/nanosuit/nanosuit.obj");
     //cout << "antes ourModel" << endl;
 
     //Model ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/ring/ring.obj");
     //Model ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/bunny/reconstruction/bun_zipper.ply");
+    Model ourModel("/home/manuel/doctorado/opengl/opengltut/opengl/models/venus/venusm.obj");
 
     //cout << "despues ourModel" << endl;
 
